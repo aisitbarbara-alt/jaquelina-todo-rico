@@ -1,0 +1,640 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color: #F0F0F0; 
+    margin:0;
+    padding:0;
+    font-family: sans-serif; 
+}
+
+
+/* Estilos para el encabezado - Ajustados para parecerse a tu imagen */
+header {
+    text-align: center;
+    padding: 20px 10px; /* Ajusta el padding vertical */
+    background-color: white;  
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+}
+
+.titulo-principal {
+    color: #000000;
+    text-align: center;
+    margin: 0;
+    font-size: 2.2em;
+    font-family: 'Kaushan Script', cursive;
+}
+
+
+/* Estilos para la barra de navegación (nav) */
+nav {
+    display: flex; /* ¡IMPORTANTE! Esto hace que el contenido dentro del nav (el ul) sea flexible */
+    justify-content: center; /* Centra el ul .menu horizontalmente dentro del nav */
+    background-color:hotpink !important; /* Color de fondo de la barra del menú */
+    padding: 10px 20px; /* Espaciado interno del nav */
+    border-radius: 10px; /* Bordes redondeados de la barra del menú */
+    margin: 20px auto; /* Centra el nav mismo en la página y añade margen vertical */
+    width: 60%; /* Ancho de la barra del menú.  */
+    max-width: 800px; /* Ancho máximo para pantallas grandes */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave para darle relieve */
+}
+
+
+/* Estilos para la lista del menú (.menu) */
+.menu {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el padding predeterminado */
+    margin: 0; /* Elimina el margen predeterminado */
+    display: flex; /* ¡CLAVE! Hace que los <li> sean horizontales */
+    justify-content: center; /* Centra los <li> dentro del <ul> */
+    flex-wrap: wrap; /* Permite que los elementos salten de línea en pantallas pequeñas */
+    background-color:hotpink ;
+}
+
+
+.menu > li {
+    position: relative; /* Necesario para posicionar el submenú */
+    margin: 0 15px; /* Espacio horizontal entre los elementos principales del menú */
+} 
+
+
+/* Estilos para los enlaces principales del menú */
+.menu > li > a {
+    display: block; /* Hace que el enlace ocupe todo el espacio del li */
+    padding: 10px 20px; /* Espaciado interno de los enlaces */
+    text-decoration: none; /* Quita el subrayado */
+    color: #111; /* Color de texto más oscuro */
+    font-size: 1.1em; /* Tamaño de fuente */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para hover */
+    border-radius: 5px; /* Bordes redondeados para los enlaces */
+}
+
+
+.menu > li > a:hover {
+    background-color: pink; /* Color de fondo al pasar el mouse */
+    color: white; /* Color de texto al pasar el mouse */
+}
+
+
+/* Estilos para el submenú */
+.menu ul { /* Esto se aplica a los <ul> anidados */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute; /* Posiciona el submenú de forma flotante */
+    top: 100%; /* Lo coloca justo debajo del elemento padre (li) */
+    left: 0; /* Lo alinea a la izquierda del elemento padre */
+    background-color: #f8f8f8; /* Fondo del submenú */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    display: none; /* ¡OCULTO por defecto! */
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    border-radius: 5px;
+    padding: 10px 0;
+    min-width: 200px; /* Ancho mínimo para el submenú */
+    text-align: left; /* Alinea el texto del submenú a la izquierda */
+}
+
+
+.menu li:hover > ul {
+    display: block; /* ¡Muestra el submenú al pasar el mouse por el <li> padre! */
+}
+
+
+.menu ul li a { /* Estilos para los enlaces dentro del submenú */
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+
+.menu ul li a:hover {
+    background-color: white;
+    color: fuchsia;
+}
+
+.menu li:focus-within > ul {
+    display: block;
+}
+
+
+p{
+   text-align: center;
+   color:black;
+   font-family:cursive;
+   font-size: 18px;
+}
+
+
+h2{
+   text-align: center;
+   color:floralwhite;
+   font-family: monospace;
+   color: black;
+}
+
+
+dl{
+   padding: 15px;
+   margin-bottom: 20px;
+   text-align: center;
+   color: black;
+}
+
+
+dt{
+   font-weight: bold; 
+   margin-bottom: 5px;
+   background-size: 30px; /* Tamaño de las imágenes */
+   color: black;
+}
+
+
+dd{
+   margin-left: 20px; 
+   margin-bottom: 10px;
+   margin-left: 35px; /* Alineado con el texto de dt */
+   color: black;  
+}
+
+
+/* Estilos para la galería */
+.gallery {
+    display: grid;
+    /* *** CAMBIO CLAVE: Exactamente 5 columnas para pantallas grandes *** */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; /* Espacio entre las imágenes */
+    padding: 20px;
+    max-width: 1200px; /* Ancho máximo de la galería */
+    margin: 20px auto; /* Centrar la galería */
+}
+
+
+.gallery-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* Muy importante para el zoom, recorta la parte de la imagen que se sale */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    /* El truco del padding-bottom para mantener la relación de aspecto del contenedor */
+    position: relative;
+    padding-bottom: 75%; /* Relación de aspecto 4:3. Puedes probar 100% para cuadrado (1:1), o 56.25% para 16:9 */
+    height: 0; 
+    transform: translateZ(0); /* Truco para asegurar que la animación del zoom sea suave */
+} 
+
+
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Escala la imagen para que quepa completamente */
+    background-color: #f8f8f8; /* Color de fondo si la imagen no coincide con la proporción */
+    display: block;
+}
+
+
+/* Efecto zoom al pasar el cursor */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Hace la imagen un 10% más grande */
+}
+
+
+/* --- NUEVOS ESTILOS PARA EL MODAL DE IMAGEN --- */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Permanece en la misma posición al hacer scroll */
+    z-index: 1000; /* Se sitúa encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Habilita scroll si es necesario (no debería serlo para imágenes grandes) */
+    background-color: rgba(0,0,0,0.9); /* Fondo negro con opacidad */
+    align-items: center; /* Centra verticalmente el contenido (flexbox) */
+    justify-content: center; /* Centra horizontalmente el contenido (flexbox) */
+}
+
+
+/* Contenido del modal (la imagen y los botones de navegación) */
+.modal-content-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto; /* Asegura que el contenedor se centre incluso si no es flex */
+}
+
+.modal-content {
+    max-width: 100%;
+    max-height: 100vh; /* Ajusta la altura máxima a la altura de la ventana */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    margin: 0 auto;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    border: 5px solid white; /* Borde blanco alrededor de la imagen */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
+    object-fit: contain; /* Asegura que la imagen completa sea visible */
+}
+
+
+/* Animación de zoom */
+@keyframes zoom {
+    from {transform: scale(0.1)} 
+    to {transform: scale(1)}
+}
+
+
+/* El botón de cierre */
+.close-button {
+    position: absolute;
+    top: 20px;
+    left: 20px; /* Posicionado en la esquina superior izquierda */
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001; /* Por encima de la imagen */
+    text-shadow: 1px 1px 2px black;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+/* Botones de navegación (flechas) */
+.prev-button, .next-button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px black;
+    z-index: 1001; /* Por encima de la imagen */
+}
+
+
+.next-button {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev-button {
+    left: 0;
+    border-radius: 0 3px 3px 0; /* Por si lo quieres al revés */
+}
+
+
+/* Al pasar el mouse, añade un color de fondo más oscuro */
+.prev-button:hover, .next-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/*ESTILOS CARRUSEL*/
+.carousel-container {
+    max-width: 800px; /* Puedes ajustar esto */
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.carousel-slide img {
+    width: 100%;
+    flex-shrink: 0;
+    height:auto;
+    object-fit: cover;
+    display: block;
+}
+
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+
+/*ESTILOS FOOTER*/
+.simple-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333; /* Fondo similar al header */
+    color: white;
+    margin-top: 50px; /* Margen superior para separarlo del contenido */
+    font-family: Arial, sans-serif;
+    font-size: 1.1em;
+}
+
+
+.simple-footer p {
+    margin-bottom: 15px; /* Espacio debajo del texto "Contáctanos" */
+    margin-top: 0;
+}
+
+
+.simple-footer .social-icons {
+    display: flex;
+    justify-content: center; /* Centra los iconos horizontalmente */
+    gap: 20px; /* Espacio entre los iconos */
+}
+
+
+.social-icons a {
+    color: white;
+    font-size: 2em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+
+.simple-footer .social-icons a:hover {
+    color: pink; /* Cambia de color al pasar el mouse */
+    transform: translateY(-3px); /* Pequeño efecto de elevación */
+}
+
+
+.home-icon{
+    font-size:1.5em;
+    margin-top:5px;
+    color:black;
+}
+
+
+/*
+===============================
+1. ESTILOS BASE (MOBILE-FIRST)
+===============================
+
+
+h1 {
+    font-size: 1.5em; /* Tamaño más pequeño para móviles */
+    margin: 0;
+    color: white;
+}
+
+
+/* Navegación (mobile-first) */
+nav {
+    background-color: #f8f8f8;
+    padding: 10px 5px; /* Reducimos el padding horizontal */
+    border-radius: 10px;
+    margin: 10px auto; /* Centra el nav horizontalmente */
+    max-width: 95%; /* Aseguramos que no exceda el 95% del ancho de la pantalla */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.menu > li {
+    position: relative;
+    margin: 5px 0;
+    text-align: center;
+}
+
+
+.menu > li > a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #111;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.menu > li > a:hover {
+    background-color: pink;
+    color: white;
+}
+
+
+/* Galería (mobile-first) */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna para móviles */
+    gap: 15px;
+    padding: 15px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+
+
+/* El resto de tus estilos como 'carousel', 'footer', 'modal', etc. se mantienen */
+
+/*
+===============================
+2. MEDIA QUERIES
+===============================
+*/
+
+/*
+===============================
+2. MEDIA QUERIES
+===============================
+*/
+
+
+/* Estilos para Tablets (min-width: 768px) */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+
+
+ /* Navegación para tablets y escritorios */
+    nav {
+        width: 90%; /* Aumentamos el ancho en tablets para más espacio */
+        max-width: 900px; /* Le damos un ancho máximo para que no se vea enorme en monitores */
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    
+    .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px; /* Agregamos un pequeño espacio entre los elementos */
+    }
+
+
+     .menu > li {
+        margin: 5px; /* Reducimos el margen para evitar que se caigan de línea */
+    }
+
+    .menu > li > a {
+        padding: 8px 12px; /* Reducimos el padding para que las letras no se vean tan apretadas */
+        font-size: 1.2em; /* Aumentamos un poco el tamaño de la letra para que sea más legible */
+    }
+
+
+     /* Submenú visible al pasar el cursor en tablets y escritorio */
+    
+
+
+      .menu ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #f8f8f8;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        border-radius: 5px;
+        padding: 10px 0;
+        min-width: 200px;
+    }
+
+
+    /* Galería para tablets */
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+        gap: 20px;
+    }
+}
+
+
+/* Media query para iPad Pro y Escritorios (min-width: 1024px) */
+@media (min-width: 1024px) {
+    /* Estilos de encabezado */
+    h1 {
+        font-size: 2.3em;
+    }
+
+
+    /* Estilos de navegación */
+    nav {
+        width: 70%;
+        max-width: 1000px;
+        margin: 20px auto;
+    }
+
+
+    .menu {
+        /*
+        La propiedad 'flex-wrap' es la clave.
+        'nowrap' fuerza a que todo el contenido se mantenga en una sola línea.
+        */
+        flex-wrap: nowrap;
+        
+        /*
+        La propiedad 'align-items' es la solución para la alineación vertical.
+        'center' alinea verticalmente los elementos en el centro de la fila.
+        */
+        align-items: center;
+        
+        /* Distribuimos el espacio de forma más uniforme */
+        justify-content: space-around;
+        
+        padding: 0; /* Aseguramos que no haya padding que afecte la alineación */
+    }
+
+
+    .menu > li {
+        margin: 0 5px; /* Reducimos los márgenes para dar más espacio */
+    }
+
+
+    .menu > li > a {
+        font-size: 1.3em;
+        padding: 10px 15px; /* Reducimos un poco el padding para que quepa todo */
+        line-height: 1.5;
+        white-space: nowrap; /* Evitamos que el texto del enlace se rompa */
+    }
+
+
+    /* Galería para escritorio */
+    .gallery {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+
+    .home-icon {
+        font-size: 2.3em;
+        color: black;
+    }
+}
+
+
+  /* --- FIN DE CAMBIOS --- */
+
+   
+
+
+/* En tu archivo style.css */
+.simple-footer p:last-of-type {
+  margin-top: 20px; /* Puedes ajustar este valor */
+ }   
+
+
+
+
+
+
