@@ -33,7 +33,7 @@ header {
 nav {
     display: flex; /* ¡IMPORTANTE! Esto hace que el contenido dentro del nav (el ul) sea flexible */
     justify-content: center; /* Centra el ul .menu horizontalmente dentro del nav */
-    background-color:#F5F5DC; !important; /* Color de fondo de la barra del menú */
+    background-color:burlywood; !important; /* Color de fondo de la barra del menú */
     padding: 10px 20px; /* Espaciado interno del nav */
     border-radius: 10px; /* Bordes redondeados de la barra del menú */
     margin: 20px auto; /* Centra el nav mismo en la página y añade margen vertical */
@@ -51,7 +51,7 @@ nav {
     display: flex; /* ¡CLAVE! Hace que los <li> sean horizontales */
     justify-content: center; /* Centra los <li> dentro del <ul> */
     flex-wrap: wrap; /* Permite que los elementos salten de línea en pantallas pequeñas */
-    background-color:#F5F5DC; 
+    background-color:burlywood; 
 }
 
 
