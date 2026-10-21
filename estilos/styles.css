@@ -51,7 +51,7 @@ nav {
     display: flex; /* ¡CLAVE! Hace que los <li> sean horizontales */
     justify-content: center; /* Centra los <li> dentro del <ul> */
     flex-wrap: wrap; /* Permite que los elementos salten de línea en pantallas pequeñas */
-    background-color:hotpink ;
+    background-color:beige ;
 }
 
 
