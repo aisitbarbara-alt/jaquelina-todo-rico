@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Página principal -->
+  <url>
+    <loc>https://aisitbarbara-alt.github.io/jaquelina-todo-rico/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Páginas secundarias -->
+  <url>
+    <loc>https://aisitbarbara-alt.github.io/jaquelina-todo-rico/desayunos.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aisitbarbara-alt.github.io/jaquelina-todo-rico/bizcochuelos.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aisitbarbara-alt.github.io/jaquelina-todo-rico/budines.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aisitbarbara-alt.github.io/jaquelina-todo-rico/galeria.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aisitbarbara-alt.github.io/jaquelina-todo-rico/presentacion.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://aisitbarbara-alt.github.io/jaquelina-todo-rico/testimonios.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
